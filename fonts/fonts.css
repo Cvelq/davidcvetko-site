@@ -1,0 +1,52 @@
+/* Self-hosted, subset webfonts. Sources: google/fonts repo (OFL-licensed) */
+/* Fraunces: github.com/google/fonts/tree/main/ofl/fraunces (upstream github.com/undercasetype/Fraunces) */
+/* Public Sans: github.com/google/fonts/tree/main/ofl/publicsans (upstream github.com/uswds/public-sans) */
+/* IBM Plex Mono: github.com/google/fonts/tree/main/ofl/ibmplexmono (upstream github.com/IBM/plex) */
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fraunces-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fraunces-italic-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('public-sans-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('public-sans-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('plex-mono-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('plex-mono-500.woff2') format('woff2');
+}
