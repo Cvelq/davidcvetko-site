@@ -438,6 +438,10 @@ section:last-of-type {
   font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
+.section-head p + p {
+  margin-top: calc(var(--unit) * 2);
+}
+
 .section-head p {
   margin-top: calc(var(--unit) * 2);
   color: var(--text);
