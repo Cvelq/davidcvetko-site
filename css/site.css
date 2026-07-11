@@ -389,9 +389,8 @@ section:last-of-type {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .stat-cell:nth-child(3) {
-    border-left: none;
-    padding-left: 0;
+  .stat-cell {
+    min-width: 0;
   }
 
   .stat-cell:nth-child(1),
@@ -403,6 +402,26 @@ section:last-of-type {
   .stat-cell:nth-child(2),
   .stat-cell:nth-child(4) {
     border-left: 1px solid var(--rule);
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-cell,
+  .stat-cell:nth-child(2),
+  .stat-cell:nth-child(4) {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--rule);
+    padding-top: calc(var(--unit) * 2);
+  }
+
+  .stat-cell:first-child {
+    border-top: none;
+    padding-top: 0;
   }
 }
 
@@ -454,13 +473,6 @@ section:last-of-type {
 }
 
 .method-step p {
-  max-width: 60ch;
-}
-
-.villain {
-  margin-top: calc(var(--unit) * 5);
-  padding-top: calc(var(--unit) * 4);
-  border-top: 1px solid var(--rule);
   max-width: 60ch;
 }
 
@@ -685,33 +697,6 @@ section:last-of-type {
 }
 
 /* ==========================================================================
-   Case-study card (single filled surface panel - one of the few allowed)
-   ========================================================================== */
-
-.case-card {
-  max-width: 480px;
-  background: var(--surface);
-  border-radius: 4px;
-  padding: calc(var(--unit) * 4);
-}
-
-.case-card__stat {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-variant-numeric: tabular-nums;
-}
-
-.case-card__mechanism {
-  margin-top: calc(var(--unit) * 2);
-}
-
-.case-card__link {
-  margin-top: calc(var(--unit) * 3);
-  display: inline-block;
-}
-
-/* ==========================================================================
    Case-study page: narrative sections + durability chart
    ========================================================================== */
 
@@ -760,11 +745,19 @@ section:last-of-type {
 .durability-chart {
   margin-top: calc(var(--unit) * 6);
   max-width: 720px;
+  overflow-x: auto;
 }
 
 .durability-chart__svg {
   width: 100%;
   height: auto;
+  min-width: 600px;
+}
+
+.durability-chart .chart-floorline {
+  stroke: var(--muted);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
 }
 
 .durability-chart text {
@@ -774,7 +767,7 @@ section:last-of-type {
 
 .durability-chart .chart-label {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   fill: var(--muted);
 }
 
@@ -878,4 +871,10 @@ section:last-of-type {
 .privacy-content p {
   margin-bottom: calc(var(--unit) * 2);
   max-width: 62ch;
+}
+
+.calendly-fallback {
+  margin-top: calc(var(--unit) * 2);
+  font-size: 0.9rem;
+  color: var(--muted);
 }

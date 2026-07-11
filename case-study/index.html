@@ -71,23 +71,26 @@
            Only the three verified figures (start, six-month, floor) render. -->
       <div class="durability-chart">
         <span class="eyebrow">Revenue timeline</span>
+        <!-- Y-scale is consistent: y=120 is $10k, y=60 is $45.5k, so the
+             $30k floor line sits at y=86, between the two verified points. -->
         <svg class="durability-chart__svg" viewBox="0 0 720 220" role="img" aria-label="Revenue timeline: $10k per month at the start, $45.5k per month at month six, and a floor above $30k per month held since January 2026.">
-          <!-- Shaded floor band -->
-          <rect class="chart-floor" x="0" y="150" width="720" height="40" />
-          <text class="chart-label" x="12" y="176">$30k/mo revenue floor since January 2026</text>
-
-          <!-- Baseline -->
+          <!-- Baseline at the $10k start level -->
           <line class="chart-baseline" x1="40" y1="120" x2="680" y2="120" />
 
-          <!-- Start point -->
-          <circle class="chart-point" cx="60" cy="120" r="5" />
-          <text class="chart-label" x="60" y="100" text-anchor="middle">Start</text>
-          <text x="60" y="80" text-anchor="middle" font-size="20">$10k/mo</text>
+          <!-- Floor line at the $30k level + shaded zone down to the start level -->
+          <rect class="chart-floor" x="40" y="86" width="640" height="34" />
+          <line class="chart-floorline" x1="40" y1="86" x2="680" y2="86" />
+          <text class="chart-label" x="48" y="108">$30k/mo revenue floor since January 2026</text>
 
-          <!-- Six-month point (carries the screen's single accent highlight) -->
-          <circle class="chart-point chart-point--accent" cx="660" cy="60" r="6" />
-          <text class="chart-label" x="660" y="40" text-anchor="middle">Month six</text>
-          <text x="660" y="20" text-anchor="middle" font-size="22">$45.5k/mo</text>
+          <!-- Start point ($10k/mo) -->
+          <circle class="chart-point" cx="60" cy="120" r="5" />
+          <text class="chart-label" x="60" y="146" text-anchor="middle">Start</text>
+          <text x="60" y="172" text-anchor="middle" font-size="22">$10k/mo</text>
+
+          <!-- Six-month point ($45.5k/mo; carries the screen's single accent highlight) -->
+          <circle class="chart-point chart-point--accent" cx="640" cy="60" r="6" />
+          <text class="chart-label" x="640" y="46" text-anchor="middle">Month six</text>
+          <text x="640" y="26" text-anchor="middle" font-size="24">$45.5k/mo</text>
         </svg>
       </div>
     </div>
@@ -118,5 +121,6 @@
     <p class="footer-note">&copy; 2026 David Cvetkovic. Meta ads and creative strategy for DTC brands.</p>
   </div>
 </footer>
+<script src="../js/site.js"></script>
 </body>
 </html>

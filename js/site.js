@@ -1,23 +1,44 @@
 /*
  * site.js - vanilla JS, no build step, no framework.
- * Handles the Home contact module: the Calendly embed loads only after
- * the visitor submits the two qualifying questions. Nothing Calendly-related
- * (script tag, iframe, preconnect) exists in the document before that click.
+ * Loaded on every page:
+ *   1. Persists the inbound ?src attribution across internal navigation
+ *      (relative links drop query strings, so sessionStorage carries it).
+ *   2. On the Home contact module: the Calendly embed loads only after
+ *      the visitor submits the two qualifying questions. Nothing
+ *      Calendly-related (script tag, iframe, preconnect) exists in the
+ *      document before that click. A plain fallback link renders with
+ *      the embed so a blocked or failed iframe never dead-ends the page.
  */
 
 (function () {
   var CALENDLY_URL = "https://calendly.com/cvetkovicd050/20";
+
+  var params = new URLSearchParams(window.location.search);
+  var inboundSrc = params.get("src");
+  try {
+    if (inboundSrc) {
+      sessionStorage.setItem("dc_src", inboundSrc);
+    }
+  } catch (e) {
+    /* storage unavailable (private mode etc.) - fall through */
+  }
+
+  function getSrc() {
+    if (inboundSrc) {
+      return inboundSrc;
+    }
+    try {
+      return sessionStorage.getItem("dc_src") || "";
+    } catch (e) {
+      return "";
+    }
+  }
 
   var form = document.getElementById("qualify-form");
   var embedContainer = document.getElementById("calendly-embed");
 
   if (!form || !embedContainer) {
     return;
-  }
-
-  function getSrcParam() {
-    var params = new URLSearchParams(window.location.search);
-    return params.get("src") || "";
   }
 
   function loadCalendly(spendRange, currentSetup, src) {
@@ -49,6 +70,19 @@
     iframe.frameBorder = "0";
     iframe.title = "Book a call";
     embedContainer.appendChild(iframe);
+
+    // Failure fallback: if the embed is blocked or fails to load, the
+    // visitor still has a direct path to the same calendar.
+    var fallback = document.createElement("p");
+    fallback.className = "calendly-fallback";
+    var fallbackLink = document.createElement("a");
+    fallbackLink.className = "text-link";
+    fallbackLink.href = embedUrl;
+    fallbackLink.target = "_blank";
+    fallbackLink.rel = "noopener";
+    fallbackLink.textContent = "Calendar not loading? Open it in a new tab.";
+    fallback.appendChild(fallbackLink);
+    embedContainer.appendChild(fallback);
   }
 
   form.addEventListener("submit", function (event) {
@@ -56,9 +90,8 @@
 
     var spendRange = document.getElementById("q1-spend").value;
     var currentSetup = document.getElementById("q2-setup").value;
-    var src = getSrcParam();
 
     form.hidden = true;
-    loadCalendly(spendRange, currentSetup, src);
+    loadCalendly(spendRange, currentSetup, getSrc());
   });
 })();
