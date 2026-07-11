@@ -691,15 +691,6 @@ section:last-of-type {
   width: fit-content;
 }
 
-.calendly-embed {
-  margin-top: calc(var(--unit) * 4);
-  min-height: 630px;
-}
-
-.calendly-embed[hidden] {
-  display: none;
-}
-
 /* ==========================================================================
    Case-study page: narrative sections + durability chart
    ========================================================================== */
@@ -877,8 +868,7 @@ section:last-of-type {
   max-width: 62ch;
 }
 
-.calendly-fallback {
-  margin-top: calc(var(--unit) * 2);
+.booking-fallback {
   font-size: 0.9rem;
   color: var(--muted);
 }

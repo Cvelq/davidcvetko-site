@@ -242,13 +242,13 @@
               <option value="A freelancer">A freelancer</option>
             </select>
           </div>
-          <button type="submit" class="btn" id="reveal-calendly">Book the call</button>
+          <button type="submit" class="btn" id="book-call">Book the call</button>
+          <p class="booking-fallback"><a class="text-link" id="calendly-direct" href="https://calendly.com/cvetkovicd050/20">Button not working? Open the booking page directly.</a></p>
         </form>
 
-        <!-- Calendly loads ONLY after the reveal button is clicked. Nothing
-             from Calendly (script, iframe, preconnect) exists in this
-             document until that interaction. -->
-        <div class="calendly-embed" id="calendly-embed" hidden></div>
+        <!-- The button redirects to the hosted Calendly booking page with
+             the two answers + attribution as prefill params. Nothing from
+             Calendly (script, iframe, preconnect) ever loads on this site. -->
       </div>
     </div>
   </section>
