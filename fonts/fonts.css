@@ -50,3 +50,12 @@
   font-display: swap;
   src: url('plex-mono-500.woff2') format('woff2');
 }
+
+/* Bebas Neue: github.com/google/fonts/tree/main/ofl/bebasneue, OFL */
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('bebas-neue-400.woff2') format('woff2');
+}
