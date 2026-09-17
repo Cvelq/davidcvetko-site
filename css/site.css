@@ -1572,3 +1572,10 @@ html, body { overflow-x: clip; }
   .table-scroll::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 36px; pointer-events: none; background: linear-gradient(to right, rgba(255,255,255,0), var(--ground)); }
   .durability-chart .chart-label { font-size: 16px; }
 }
+
+/* After the 30 days: share the timeline's column and rail width so the icon lines up with the steps above. */
+@media (min-width: 641px) {
+  .after-section .timeline__step--single { max-width: var(--text-col); grid-template-columns: 120px minmax(0, 1fr); gap: 0 40px; }
+  .after-section .timeline__rail { text-align: left; }
+  .after-section .timeline__label { white-space: normal; }
+}
