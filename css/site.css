@@ -1129,7 +1129,7 @@ summary:focus-visible {
 .fan__card:nth-child(3) { top: 80px; left: 12%; transform: rotate(0deg); }
 .fan__card--top { top: 0; left: 18%; transform: rotate(1.5deg); }
 .fan__caption { font-size: 13px; color: var(--muted); margin: 16px 0 0; text-align: right; }
-@media (max-width: 1100px) { .hero__split { grid-template-columns: 1fr; gap: 40px; } .hero__split .hero__stack { text-align: center; margin: 0 auto; } .hero__split .cta-row { justify-content: center; } .hero__split h1 { font-size: 72px; } .fan { height: 360px; max-width: 640px; margin: 0 auto; } .fan__caption { text-align: center; } }
+@media (max-width: 1100px) { .hero__split { grid-template-columns: 1fr; gap: 40px; } .hero__split .hero__stack { text-align: center; margin: 0 auto; } .hero__split .cta-row { justify-content: center; } .hero__split h1 { font-size: 72px; } .fan { height: 430px; max-width: 640px; margin: 0 auto; } .fan__caption { text-align: center; } }
 @media (max-width: 640px) { .hero__split h1 { font-size: 56px; } .fan { height: 330px; } .fan__caption { margin-top: 24px; } .fan__card:nth-child(1) { top: 150px; } .fan__card:nth-child(2) { top: 100px; } .fan__card:nth-child(3) { top: 50px; } }
 @media (max-width: 400px) { .hero__split h1 { font-size: 44px; } }
 
