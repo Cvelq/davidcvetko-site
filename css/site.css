@@ -1591,3 +1591,27 @@ html, body { overflow-x: clip; }
 .fan__chip--end { top: -22px; right: -8px; }
 .fan__chip--start { top: 330px; left: -16px; }
 @media (max-width: 640px) { .fan__chip--start { display: none; } .fan__chip--end { position: static; width: fit-content; margin: 12px auto 0; } }
+
+/* Phone header (one row) + hero proof block, Option 1 (2026-10-11) */
+.mproof { display: none; }
+@media (max-width: 640px) {
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; padding-top: 0; padding-bottom: 0; }
+  .site-header .wordmark { font-size: 22px; }
+  .hero__proof { display: none; }
+  .mproof { display: block; margin: 24px -16px 28px; padding: 22px 16px 16px; }
+  .mproof__label { font-size: 13px; font-weight: 600; color: var(--tile-ink); margin: 0 0 10px; }
+  .mproof__row { display: flex; align-items: flex-end; gap: 14px; margin-bottom: 16px; }
+  .mproof__row > div { display: flex; flex-direction: column; gap: 4px; }
+  .mproof__fig { font-family: var(--font-mono); font-weight: 500; font-size: 34px; line-height: 1; font-variant-numeric: tabular-nums; color: var(--tile-ink); }
+  .mproof__when { font-size: 12px; color: var(--tile-ink); }
+  .mproof__arrow { font-family: var(--font-mono); font-size: 24px; color: var(--tile-ink); padding-bottom: 20px; }
+  .mproof__shot { width: 100%; height: auto; border: 1px solid var(--hairline); border-radius: 4px; background: #fff; }
+}
+
+@media (max-width: 640px) {
+  .site-header nav { display: none; }
+  .site-header .wrap > .btn { font-size: 13px; padding: 10px 16px; }
+  .mproof { background: var(--tile-1); }
+  .mproof__fig--end { color: var(--accent); }
+}
+@media (max-width: 640px) { .tile-grid .tile:first-child { display: none; } }
