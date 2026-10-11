@@ -1579,3 +1579,6 @@ html, body { overflow-x: clip; }
   .after-section .timeline__rail { text-align: left; }
   .after-section .timeline__label { white-space: normal; }
 }
+
+/* About: the name is the page H1 for search, styled exactly as the h3 it replaced (2026-10-11) */
+.about-side h1.about-name { font-family: var(--font-body); font-weight: 600; font-size: 20px; line-height: inherit; text-transform: none; color: var(--ink); margin: 0 0 8px; }
