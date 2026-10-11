@@ -320,12 +320,12 @@ summary:focus-visible {
 }
 
 .tile {
-  height: 240px;
   padding: 28px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .tile:nth-child(1) { background: var(--tile-1); }
@@ -1582,3 +1582,12 @@ html, body { overflow-x: clip; }
 
 /* About: the name is the page H1 for search, styled exactly as the h3 it replaced (2026-10-11) */
 .about-side h1.about-name { font-family: var(--font-body); font-weight: 600; font-size: 20px; line-height: inherit; text-transform: none; color: var(--ink); margin: 0 0 8px; }
+
+/* Hero fan: readable figures on the first and last month (2026-10-11 mockup) */
+.fan__chip { position: absolute; z-index: 2; display: flex; flex-direction: column; gap: 2px; padding: 10px 16px; background: #fff; border: 1px solid var(--hairline); border-radius: 4px; }
+.fan__chip-label { font-size: 12px; font-weight: 600; color: var(--muted); }
+.fan__chip-figure { font-family: var(--font-mono); font-weight: 500; font-size: 24px; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1.1; }
+.fan__chip--end .fan__chip-figure { color: var(--accent); }
+.fan__chip--end { top: -22px; right: -8px; }
+.fan__chip--start { top: 330px; left: -16px; }
+@media (max-width: 640px) { .fan__chip--start { display: none; } .fan__chip--end { position: static; width: fit-content; margin: 12px auto 0; } }
